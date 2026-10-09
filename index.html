@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cyberpunk Synthwave 2026 - Music Release (Variant 14)</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="grid-container">
+    
+    <!-- Шапка альбому -->
+    <header class="album-header">
+      <div class="logo-group">
+        <!-- Векторний SVG логотип -->
+        <svg class="brand-logo pulse-anim" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Audio Label Logo">
+          <circle cx="50" cy="50" r="45" fill="none" stroke="#008080" stroke-width="6"/>
+          <polygon points="38,30 75,50 38,70" fill="#008080"/>
+        </svg>
+        <h1>NEON HORIZON</h1>
+      </div>
+      <p class="artist-name">Artist: Cyber Wave Labs | Release Year: 2026</p>
+    </header>
+
+    <!-- Обкладинка альбому (Адаптивне WebP / Lazy Loading) -->
+    <section class="album-cover">
+      <figure class="cover-wrapper">
+        <img src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=600&q=80" 
+             alt="Cyberpunk Synthwave Album Cover" 
+             loading="lazy" 
+             class="cover-img">
+        <figcaption class="sr-only">Обкладинка музичного альбому Neon Horizon</figcaption>
+      </figure>
+    </section>
+
+    <!-- Трек-лист (HTML Таблиця) -->
+    <section class="album-tracks">
+      <h2>Треклист альбому</h2>
+      <table class="tracklist-table">
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">Назва треку</th>
+            <th scope="col">Жанр</th>
+            <th scope="col">Тривалість</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="track-row">
+            <td>01</td>
+            <td class="track-title">Cybernetic Dreams</td>
+            <td>Synthwave</td>
+            <td>03:45</td>
+          </tr>
+          <tr class="track-row">
+            <td>02</td>
+            <td class="track-title">Midnight Drive</td>
+            <td>Retrowave</td>
+            <td>04:12</td>
+          </tr>
+          <tr class="track-row">
+            <td>03</td>
+            <td class="track-title">Neon Lights & Shadows</td>
+            <td>Darksynth</td>
+            <td>03:58</td>
+          </tr>
+          <tr class="track-row">
+            <td>04</td>
+            <td class="track-title">Digital Frontier</td>
+            <td>Electro</td>
+            <td>04:30</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <!-- Фіксований аудіоплеєр -->
+    <footer class="album-player">
+      <div class="player-info">
+        <span class="now-playing-badge">Зараз грає:</span>
+        <span class="song-title">Cybernetic Dreams - Cyber Wave Labs</span>
+      </div>
+      <audio controls class="audio-control">
+        <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg">
+        Ваш браузер не підтримує елемент аудіо.
+      </audio>
+    </footer>
+
+  </div>
+</body>
+</html>

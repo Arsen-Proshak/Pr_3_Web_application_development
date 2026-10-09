@@ -1,0 +1,208 @@
+/* CSS Змінні */
+:root {
+  --primary-color: #1b365d;
+  --accent-teal: #008080;
+  --accent-hover: #006666;
+  --bg-dark: #0f172a;
+  --card-bg: #1e293b;
+  --text-light: #f8fafc;
+  --text-muted: #94a3b8;
+  --border-color: #334155;
+  --radius: 12px;
+  --transition: all 0.3s ease-in-out;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+  background-color: var(--bg-dark);
+  color: var(--text-light);
+  line-height: 1.6;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
+
+/* Двовимірна CSS Grid сітка */
+.grid-container {
+  max-width: 1000px;
+  width: 100%;
+  background-color: var(--card-bg);
+  border-radius: var(--radius);
+  padding: 30px;
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.4);
+  display: grid;
+  grid-template-columns: 320px 1fr;
+  grid-template-rows: auto auto auto;
+  grid-template-areas:
+    "header header"
+    "cover  tracks"
+    "player player";
+  gap: 24px;
+}
+
+/* Прив'язка іменованих областей */
+.album-header { grid-area: header; border-bottom: 2px solid var(--border-color); padding-bottom: 15px; }
+.album-cover  { grid-area: cover; }
+.album-tracks { grid-area: tracks; }
+.album-player { grid-area: player; }
+
+.logo-group {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.brand-logo {
+  width: 42px;
+  height: 42px;
+}
+
+.album-header h1 {
+  font-size: 2rem;
+  color: var(--text-light);
+  letter-spacing: 2px;
+}
+
+.artist-name {
+  color: var(--accent-teal);
+  font-size: 0.95rem;
+  margin-top: 4px;
+}
+
+/* Зображення з CSS Transition hover-ефектом */
+.cover-wrapper {
+  overflow: hidden;
+  border-radius: var(--radius);
+  border: 1px solid var(--border-color);
+}
+
+.cover-img {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: cover;
+  transition: var(--transition);
+}
+
+.cover-img:hover {
+  transform: scale(1.05) rotate(1deg);
+  filter: brightness(1.1);
+}
+
+/* HTML Таблиця */
+.album-tracks h2 {
+  font-size: 1.3rem;
+  margin-bottom: 12px;
+  color: var(--accent-teal);
+}
+
+.tracklist-table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+}
+
+.tracklist-table th, .tracklist-table td {
+  padding: 12px 14px;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.tracklist-table th {
+  background-color: rgba(255, 255, 255, 0.05);
+  color: var(--text-muted);
+  font-size: 0.85rem;
+  text-transform: uppercase;
+}
+
+.track-row {
+  transition: var(--transition);
+  cursor: pointer;
+}
+
+.track-row:hover {
+  background-color: rgba(0, 128, 128, 0.15);
+  transform: translateX(6px);
+}
+
+.track-title {
+  font-weight: 600;
+  color: var(--text-light);
+}
+
+/* Аудіоплеєр */
+.album-player {
+  background: var(--primary-color);
+  padding: 18px 24px;
+  border-radius: var(--radius);
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  border: 1px solid var(--accent-teal);
+}
+
+.now-playing-badge {
+  background: var(--accent-teal);
+  color: #fff;
+  font-size: 0.75rem;
+  padding: 3px 8px;
+  border-radius: 4px;
+  margin-right: 8px;
+  font-weight: bold;
+}
+
+.audio-control {
+  width: 100%;
+  max-width: 400px;
+  height: 40px;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  clip: rect(0,0,0,0);
+  overflow: hidden;
+}
+
+/* Анімація через @keyframes (Пульсація логотипу) */
+@keyframes pulse {
+  0% { transform: scale(1); opacity: 0.9; }
+  50% { transform: scale(1.1); opacity: 1; filter: drop-shadow(0 0 8px var(--accent-teal)); }
+  100% { transform: scale(1); opacity: 0.9; }
+}
+
+.pulse-anim {
+  animation: pulse 2.5s infinite ease-in-out;
+}
+
+/* Мобільна адаптивність (< 768px) */
+@media (max-width: 768px) {
+  .grid-container {
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      "header"
+      "cover"
+      "tracks"
+      "player";
+    padding: 20px;
+  }
+
+  .album-player {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .audio-control {
+    max-width: 100%;
+  }
+}
